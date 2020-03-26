@@ -8,27 +8,74 @@ body{
 nav{     
     color:#FFE600;
     font-size: 40px;
-    text-align: center;    
-    z-index: 1;
-       
+    text-align: center; 
     .title{        
         top:0;
-        position: absolute;       
-        margin-bottom: 40px;
+        position: absolute;
         width: 100%;
         height:80px;
-        background-color: green;
+        background-color:#074006;
         h1{
             margin:0px;
         }
     }  
 }
 
-header{
+.bozoimg{
+    margin-top: 70px;
     background: url(../img/bozo.png);
     background-size: cover;
-    min-height:40rem;  
+    min-height:37rem;     
+    background-position:50%;
     width: 100%;  
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;    
+    z-index: -3; 
     
+}
+
+.teaching{       
+    
+    .instructbozo{   
+        color: #FFFFFF;
+        display:flex;
+        justify-content: space-between;    
+    
+        .teachbozo{
+            width:280px;
+            margin-left: 80px;
+            h1{
+                
+                margin-top:50px;
+                line-height: 1.2;
+                font-weight: bold;
+                font-size: 26px;
+            }
+        }
+    
+        .helpcount{
+            width:180px;
+            margin-right: 80px;
+            display:block;
+            .bgcolor{
+                border-radius: 20px;                
+                background-color:#074006;
+                h2{
+                    margin-top:50px;
+                    font-size:18px;
+                    text-align: center;
+                    font-weight: bold;
+                    line-height: 1.3;
+                    padding:10px;
+                    
+                    
+                }
+                .box-helpcount{
+                    background-color: #FFFFFF;
+                    color: black;
+                    border-radius: 20px;   
+                }
+            }
+      
+        }
+    }
 }
