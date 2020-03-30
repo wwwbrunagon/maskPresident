@@ -1,42 +1,10 @@
-window.onload = function(){
-
-    let mask = document.getElementById('mask')
-
-    // mask.addEventListener('touchmove', ev =>{
-    //     let touchlocation = ev.targetTouches[0];
-    //     mask.style.left = touchlocation.pageX + 'px'
-    //     mask.style.top = touchlocation.pageY + 'px'        
-    // })
-
-    // mask.addEventListener('touchend', ev => {
-    //     let x = parseInt(mask.style.left)
-    //     let y = parseInt(mask.style.stop)       
-        
-    //     if(x < 416 || y < 263 ){
-    //         mask.style.left = '390px'
-    //         mask.style.stop = '335px' 
-    //         console.log(`X = ${x} and Y = ${y}`)    
-    //         this.alert('yaaay')                      
-    //     }
-
-      
-    // })    
-    document.onmousemove = e =>{
-        let x = e.pageX
-        let y = e.pageY
-        // console.log(`X = ${x} and Y = ${y}`) 
-    }
-}
-
-
 class Draggable {
-
     constructor() {
-        this.container = document.querySelector('.box__dragabble');
-        this.box = document.querySelectorAll('.box'); 
-        this.boxPointer = document.querySelectorAll('.box__pointer');
+        this.dropzone = document.querySelector('.box__dragabble')
+        this.box = document.querySelectorAll('.box') 
+        this.boxPointer = document.querySelectorAll('.box__pointer')
 
-        this._addEventListener();
+        this._addEventListener()
     }
  
     _addEventListener() {
@@ -45,44 +13,41 @@ class Draggable {
             element.addEventListener('dragleave', this.dragleave)
             element.addEventListener('dragover', this.dragover)
             element.addEventListener('drop', this.drop)    
-        });
-
+        })
  
-        this.container.addEventListener('dragstart', this.dragstart);
-        this.container.addEventListener('dragend', this.dragend);
+        this.dropzone.addEventListener('dragstart', this.dragstart)
+        this.dropzone.addEventListener('dragend', this.dragend)
       
     }
  
     dragstart(e) {         
-        this.classList.add('drag_start');
+        this.classList.add('drag_start')
        setTimeout(() => {
-          this.classList.add('invisible');          
-       }, 0);
-       
+          this.classList.add('invisible')          
+       }, 0)       
     }
  
     dragend(e) {
         console.log('dragend')
-        this.classList.remove('invisible');
-        this.classList.remove('drag_start'); 
-        this.classList.add('maskposition')
-     
+        this.classList.remove('invisible')
+        this.classList.remove('drag_start') 
+        this.classList.add('maskposition')     
     }
  
     dragenter(e) {
-        e.preventDefault();   
+        e.preventDefault()   
         console.log('dragenter')
-         this.classList.add('drag_enter');
+         this.classList.add('drag_enter')
     }
  
     dragleave(e) {
         console.log('dragleave')
         
-        this.classList.remove('drag_enter');          
+        this.classList.remove('drag_enter')          
     }
  
     dragover(e) {
-        e.preventDefault(); 
+        e.preventDefault() 
         this.classList.remove('drag_enter') 
         console.log('dragover')       
 
@@ -91,18 +56,15 @@ class Draggable {
  
     drop(e) {
         e.preventDefault()    
-        let container = document.querySelector('.box__dragabble');        
+        let dropzone = document.querySelector('.box__dragabble')        
         this.classList.remove('drag_enter')
-        this.append(container) 
-        console.log('drooooooooooop')      
-   
+        this.append(dropzone) 
+        console.log('drooooooooooop')   
     }
  
     static init() {
-        return new this();
+        return new this()
     }
  }
- 
- 
- document
-     .addEventListener('load', Draggable.init());
+  
+ document.addEventListener('load', Draggable.init())
